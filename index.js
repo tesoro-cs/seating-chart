@@ -1,6 +1,5 @@
 /* Todo
 - add undo for moving/etc -- var lastAction => move, create, assign, etc
-- fix moving -- somehow make all moveable at once -- issue with var element
 */
 
 var desks = 0;
@@ -19,16 +18,16 @@ var element;
 function makeDraggable(elmnt) {
     var x1 = 0, y1 = 0, x2 = 0, y2 = 0;
     elmnt.onmousedown = startDrag;
-    element = elmnt;
 }
 
-function startDrag(elmnt, e) {
+function startDrag(e) {
     e = e || window.event;
     e.preventDefault();
     x2 = e.clientX;
     y2 = e.clientY;
     document.onmouseup = stopDrag;
     document.onmousemove = drag;
+    element = e.toElement;
 }
 
 function drag(e) {
@@ -48,9 +47,6 @@ function stopDrag() {
 }
 
 function undo() {
-    if(desks > 1) {
-        makeDraggable(document.getElementById(desks-1));
-    }
     if(desks > 0) {
         document.getElementById(desks).remove();
         desks--;

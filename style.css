@@ -3,4 +3,6 @@
     width: 150px;
     background-color: #77DD77;
     position: absolute;
+    border: solid #228822 2px;
+    border-radius: 20px;
 }

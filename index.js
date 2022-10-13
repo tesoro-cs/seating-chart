@@ -10,6 +10,7 @@ function createDesk() {
     newDesk.id = desks;
     newDesk.classList = ["desk"];
     var newLabel = document.createElement("p");
+    newLabel.id = "label" + desks;
     newLabel.classList = ["label"];
     newLabel.contentEditable = "true";
     newDesk.appendChild(newLabel);

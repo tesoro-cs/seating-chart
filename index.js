@@ -13,6 +13,7 @@ function createDesk() {
     newLabel.id = "label" + desks;
     newLabel.classList = ["label"];
     newLabel.contentEditable = "true";
+    newLabel.onclick = "$(this).focus();"
     newDesk.appendChild(newLabel);
     document.body.appendChild(newDesk);
     makeDraggable(document.getElementById(desks));

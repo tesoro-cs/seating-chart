@@ -9,7 +9,7 @@ function createDesk() {
     var newDesk = document.createElement("div");
     newDesk.id = desks;
     newDesk.classList = ["desk"];
-    newDesk.contentEditable = true;
+    newDesk.contentEditable = "true";
     document.body.appendChild(newDesk);
     makeDraggable(document.getElementById(desks));
 }

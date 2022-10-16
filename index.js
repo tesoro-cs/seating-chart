@@ -12,8 +12,8 @@ function createDesk() {
     var newLabel = document.createElement("p");
     newLabel.id = "label" + desks;
     newLabel.classList = ["label"];
+    // newLabel.innerHTML = "-";
     newLabel.contentEditable = "true";
-    newLabel.onclick = "$(this).focus();"
     newDesk.appendChild(newLabel);
     document.body.appendChild(newDesk);
     makeDraggable(document.getElementById(desks));
@@ -28,7 +28,7 @@ function makeDraggable(elmnt) {
 
 function startDrag(e) {
     e = e || window.event;
-    e.preventDefault();
+    // e.preventDefault();
     x2 = e.clientX;
     y2 = e.clientY;
     document.onmouseup = stopDrag;
@@ -38,7 +38,7 @@ function startDrag(e) {
 
 function drag(e) {
     e = e || window.event;
-    e.preventDefault();
+    // e.preventDefault();
     x1 = x2 - e.clientX;
     y1 = y2 - e.clientY;
     x2 = e.clientX;

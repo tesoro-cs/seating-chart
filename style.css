@@ -11,10 +11,12 @@
     width: 80%;
     height: 30px;
     margin-left: 10%;
+    margin-top: 20px;
     border-radius: 10px;
     border: solid #777777 1px;
+    background-color: transparent;
     text-align: center;
-    padding-top: 5%;
+    padding-top: 3%;
     font-size: 20px;
     z-index: 9999;
 }

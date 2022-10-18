@@ -60,6 +60,26 @@ function undo() {
     }
 }
 
+function fitText(input) {
+    input = input || window.event;
+    input = input.target;
+    var labelText = input.value;
+    var width = parseInt(window.getComputedStyle(i).getPropertyValue("width"));
+    labelText = labelText.split(" ");
+    for(var i = 0, i < labelText.length, i++) {
+        var chars = labelText[i].length();
+        var size = width/chars;
+        if(size <= 20 && size <= parseInt(input.style.fontSize)) {
+            console.log(size);
+            input.style.fontSize = size + "px";
+        } else if(size > 20) {
+            input.style.fontSize = "20px";
+        }
+    }
+}
+
+/*
+
 function fitText(i) {
     i = i || window.event;
     i = i.target;
@@ -73,6 +93,8 @@ function fitText(i) {
         i.style.fontSize = "20px";
     }
 }
+
+*/
 
 /*
 Maybe this will work?

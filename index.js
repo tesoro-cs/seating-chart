@@ -10,14 +10,12 @@ function createDesk() {
     var newDesk = document.createElement("div");
     newDesk.id = desks;
     newDesk.classList = ["desk"];
-    var newForm = document.createElement("form");
-    var newLabel = document.createElement("input");
+    var newLabel = document.createElement("p");
+    newLabel.contentEditable = "true";
     newLabel.id = "label" + desks;
     newLabel.classList = ["label"];
     newLabel.oninput = fitText;
-    newLabel.addEventListener('submit', function(e) { e.preventDefault(); }, false);
-    newForm.appendChild(newLabel);
-    newDesk.appendChild(newForm);
+    newDesk.appendChild(newLabel);
     document.body.appendChild(newDesk);
     makeDraggable(document.getElementById(desks));
 }

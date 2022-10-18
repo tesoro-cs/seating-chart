@@ -15,6 +15,7 @@ function createDesk() {
     newLabel.id = "label" + desks;
     newLabel.classList = ["label"];
     newLabel.oninput = fitText;
+    newLabel.addEventListener('submit', function(e) { e.preventDefault(); });
     newForm.appendChild(newLabel);
     newDesk.appendChild(newForm);
     document.body.appendChild(newDesk);

@@ -64,7 +64,7 @@ function fitText(input) {
     input = input || window.event;
     input = input.target;
     var labelText = input.value;
-    var width = parseInt(window.getComputedStyle(i).getPropertyValue("width"));
+    var width = parseInt(window.getComputedStyle(input).getPropertyValue("width"));
     labelText = labelText.split(" ");
     for(var i = 0; i < labelText.length; i++) {
         var chars = labelText[i].length();

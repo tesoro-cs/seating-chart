@@ -63,12 +63,13 @@ function undo() {
 function fitText(input) {
     input = input || window.event;
     input = input.target;
-    var labelText = input.value;
+    var labelText = input.innerHTML;
     var width = parseInt(window.getComputedStyle(input).getPropertyValue("width"));
     labelText = labelText.split(" ");
     for(var i = 0; i < labelText.length; i++) {
-        var chars = labelText[i].length();
-        var size = width/chars;
+        labelText[i] = labelText[i].replace("&nbsp", "");
+        var chars = labelText[i].length;
+        var size = width/chars*1.25;
         if(size <= 20 && size <= parseInt(input.style.fontSize)) {
             console.log(size);
             input.style.fontSize = size + "px";
@@ -78,46 +79,3 @@ function fitText(input) {
     }
 }
 
-/*
-
-function fitText(i) {
-    i = i || window.event;
-    i = i.target;
-    var chars = i.value.length
-    var width = parseInt(window.getComputedStyle(i).getPropertyValue("width"));
-    var size = width/chars;
-    if(size <= 20) {
-        console.log(size);
-        i.style.fontSize = (width/chars) + "px";
-    } else {
-        i.style.fontSize = "20px";
-    }
-}
-
-*/
-
-/*
-Maybe this will work?
-
-const isOverflown = ({ clientHeight, scrollHeight }) => scrollHeight > clientHeight
-
-const resizeText = ({ element, elements, minSize = 10, maxSize = 512, step = 1, unit = 'px' }) => {
-  (elements || [element]).forEach(el => {
-    let i = minSize
-    let overflow = false
-
-        const parent = el.parentNode
-
-    while (!overflow && i < maxSize) {
-        el.style.fontSize = `${i}${unit}`
-        overflow = isOverflown(parent)
-
-      if (!overflow) i += step
-    }
-
-    // revert to last state where no overflow happened
-    el.style.fontSize = `${i - step}${unit}`
-  })
-}
-
-*/

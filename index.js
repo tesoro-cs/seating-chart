@@ -4,9 +4,11 @@
 */
 
 var desks = 0;
+var names = [];
+
+
 
 function createDesk() {
-    desks++;
     var newDesk = document.createElement("div");
     newDesk.id = desks;
     newDesk.classList = ["desk"];
@@ -18,6 +20,8 @@ function createDesk() {
     newDesk.appendChild(newLabel);
     document.body.appendChild(newDesk);
     makeDraggable(document.getElementById(desks));
+    desks++;
+    addNames();
 }
 
 var element;
@@ -54,15 +58,17 @@ function stopDrag() {
 }
 
 function undo() {
-    if(desks > 0) {
-        document.getElementById(desks).remove();
+    if(desks-1 >= 0) {
+        document.getElementById(desks-1).remove();
         desks--;
     }
 }
 
 function fitText(input) {
-    input = input || window.event;
-    input = input.target;
+    if(!(input.contentEditable)) {
+        input = window.event;
+        input = input.target;
+    }
     var labelText = input.innerHTML;
     var width = parseInt(window.getComputedStyle(input).getPropertyValue("width"));
     labelText = labelText.split(" ");
@@ -79,3 +85,26 @@ function fitText(input) {
     }
 }
 
+function setNames() {
+    names = document.getElementById("names").value;
+    names = names.split(",");
+    addNames();
+}
+
+
+function addNames() {
+    for(var i = 0; (i < names.length && i < desks); i++) {
+        document.getElementById("label" + i).innerHTML = names[i];
+        fitText(document.getElementById("label" + i));
+    }
+}
+
+function shuffle() {
+    for(var i = names.length-1; i > 0; i--) {
+        var j = Math.floor((Math.random())*(i+1));
+        var temp = names[i];
+        names[i] = names[j];
+        names[j] = temp;
+    }
+    addNames();
+}

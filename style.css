@@ -22,3 +22,7 @@
     font-family: monospace;
     z-index: 9999;
 }
+
+#names {
+    width: 200px;
+}

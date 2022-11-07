@@ -17,6 +17,7 @@ function createDesk() {
     newLabel.id = "label" + desks;
     newLabel.classList = ["label"];
     newLabel.oninput = fitText;
+    newDesk.innerHTML = desks+1;
     newDesk.appendChild(newLabel);
     document.body.appendChild(newDesk);
     makeDraggable(document.getElementById(desks));

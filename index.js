@@ -108,3 +108,8 @@ function shuffle() {
     }
     addNames();
 }
+
+function alphabeticalSort() {
+    names.sort();
+    addNames();
+}

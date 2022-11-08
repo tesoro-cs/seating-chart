@@ -1,8 +1,3 @@
-/* Todo
-- add undo for moving/etc -- var lastAction => move, create, assign, etc
-- fit text to input by changing font size -- figure out font size based on character width
-*/
-
 var desks = 0;
 var names = [];
 

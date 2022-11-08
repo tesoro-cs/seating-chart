@@ -129,3 +129,14 @@ function printMode() {
         deskList[i].style.borderColor = "#228822"
     }
 }
+
+function exportChart() {
+    var deskList = document.getElementsByClassName("desk");
+    var exportStr = "";
+    for(var i = 0; i < deskList.length; i++) {
+        exportStr += deskList[i].style.top + "/";
+        exportStr += deskList[i].style.left + "/";
+        exportStr += document.getElementById("label" + deskList[i].id).innerHTML + "\;";
+    }
+    alert(exportStr);
+}

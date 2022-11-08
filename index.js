@@ -1,6 +1,11 @@
 var desks = 0;
 var names = [];
 
+//Importing from URL params
+document.getElementById("deskContainer").innerHTML = window.location.search;
+var params = new URLSearchParams(window.location.search);
+var input = params.get("input");
+document.getElementById("deskContainer").innerHTML = input;
 
 
 function createDesk() {
@@ -14,7 +19,7 @@ function createDesk() {
     newLabel.oninput = fitText;
     newDesk.innerHTML = desks+1;
     newDesk.appendChild(newLabel);
-    document.body.appendChild(newDesk);
+    document.getElementById("deskContainer").appendChild(newDesk);
     makeDraggable(document.getElementById(desks));
     desks++;
     addNames();
@@ -111,14 +116,14 @@ function alphabeticalSort() {
 }
 
 function printMode() {
-    document.getElementsByClassName("actions")[0].style.display = "none";
+    document.getElementById("actions").style.display = "none";
     var deskList = document.getElementsByClassName("desk");
     for(var i = 0; i < deskList.length; i++) {
         deskList[i].style.backgroundColor = "white";
         deskList[i].style.borderColor = "#000000"
     }
     print();
-    document.getElementsByClassName("actions")[0].style.display = "block";
+    document.getElementById("actions").style.display = "block";
     for(var i = 0; i < deskList.length; i++) {
         deskList[i].style.backgroundColor = "#77DD77";
         deskList[i].style.borderColor = "#228822"

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="actions">
+    <div id="actions">
         <button onclick="createDesk()">Create Desk</button>
         <button onclick="undo()">Undo</button>
         <button onclick="shuffle()">Shuffle</button>
@@ -16,7 +16,9 @@
         <button onclick="printMode()">Print</button>
         <input type="text" id="names" placeholder="Enter names (comma separated)" oninput="setNames()">
     </div>
+    <div id="deskContainer">
 
+    </div>
     <script src="index.js"></script>
 </body>
 </html>

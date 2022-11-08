@@ -8,11 +8,14 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <button onclick="createDesk()">Create Desk</button>
-    <button onclick="undo()">Undo</button>
-    <button onclick="shuffle()">Shuffle</button>
-    <button onclick="alphabeticalSort()">Sort Alphabetically</button>
-    <input type="text" id="names" placeholder="Enter names (comma separated)" oninput="setNames()">
+    <div class="actions">
+        <button onclick="createDesk()">Create Desk</button>
+        <button onclick="undo()">Undo</button>
+        <button onclick="shuffle()">Shuffle</button>
+        <button onclick="alphabeticalSort()">Sort Alphabetically</button>
+        <button onclick="printMode()">Print</button>
+        <input type="text" id="names" placeholder="Enter names (comma separated)" oninput="setNames()">
+    </div>
 
     <script src="index.js"></script>
 </body>

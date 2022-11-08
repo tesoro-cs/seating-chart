@@ -5,7 +5,10 @@
     position: absolute;
     border: solid #228822 2px;
     border-radius: 20px;
+    padding-left: 10px;
+    padding-top: 8px;
 }
+
 
 .label {
     width: 80%;

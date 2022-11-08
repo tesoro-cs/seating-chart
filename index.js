@@ -114,3 +114,18 @@ function alphabeticalSort() {
     names.sort();
     addNames();
 }
+
+function printMode() {
+    document.getElementsByClassName("actions")[0].style.display = "none";
+    var deskList = document.getElementsByClassName("desk");
+    for(var i = 0; i < deskList.length; i++) {
+        deskList[i].style.backgroundColor = "white";
+        deskList[i].style.borderColor = "#000000"
+    }
+    print();
+    document.getElementsByClassName("actions")[0].style.display = "block";
+    for(var i = 0; i < deskList.length; i++) {
+        deskList[i].style.backgroundColor = "#77DD77";
+        deskList[i].style.borderColor = "#228822"
+    }
+}

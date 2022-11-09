@@ -149,6 +149,5 @@ function exportChart() {
         exportStr += document.getElementById("label" + deskList[i].id).innerHTML + "\;";
     }
     exportStr = "cs.thsclub.org/seating-chart/?input=" + encodeURIComponent(exportStr);
-    alert(exportStr);
-    navigator.clipboard.writeText(exportStr);
+    navigator.clipboard.writeText(exportStr).then(function() { alert(exportStr); });
 }

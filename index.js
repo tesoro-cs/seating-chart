@@ -13,6 +13,7 @@ if(input) {
         document.getElementById(i).style.top = input[i][0];
         document.getElementById(i).style.left = input[i][1];
         document.getElementById("label" + i).innerHTML = input[i][2];
+        names.push(input[i][2]);
     }
     console.log(input);
 }

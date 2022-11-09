@@ -2,10 +2,20 @@ var desks = 0;
 var names = [];
 
 //Importing from URL params
-document.getElementById("deskContainer").innerHTML = window.location.search;
 var params = new URLSearchParams(window.location.search);
 var input = params.get("input");
-document.getElementById("deskContainer").innerHTML = input;
+if(input) {
+    input = input.split("\;");
+    input.pop();
+    for(var i = 0; i < input.length; i++) {
+        input[i] = input[i].split("/");
+        createDesk();
+        document.getElementById(i).style.top = input[i][0];
+        document.getElementById(i).style.left = input[i][1];
+        document.getElementById("label" + i).innerHTML = input[i][2];
+    }
+    console.log(input);
+}
 
 
 function createDesk() {
@@ -138,5 +148,5 @@ function exportChart() {
         exportStr += deskList[i].style.left + "/";
         exportStr += document.getElementById("label" + deskList[i].id).innerHTML + "\;";
     }
-    alert(exportStr);
+    alert("cs.thsclub.org/seating-chart/?input=" + encodeURIComponent(exportStr));
 }

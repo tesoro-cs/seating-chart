@@ -148,5 +148,7 @@ function exportChart() {
         exportStr += deskList[i].style.left + "/";
         exportStr += document.getElementById("label" + deskList[i].id).innerHTML + "\;";
     }
-    alert("cs.thsclub.org/seating-chart/?input=" + encodeURIComponent(exportStr));
+    exportStr = "cs.thsclub.org/seating-chart/?input=" + encodeURIComponent(exportStr);
+    alert(exportStr);
+    navigator.clipboard.writeText(exportStr);
 }

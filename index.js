@@ -82,7 +82,14 @@ function fitText(input) {
         input = input.target;
     }
     var labelText = input.innerHTML;
+    //Adding name to list
+    if(input.id.substring(5) > names.length) {
+        for(var i = 0; i < input.id.substring(5); i++) {
+            names[i] = "";
+        }
+    }
     names[input.id.substring(5)] = labelText;
+    
     var width = parseInt(window.getComputedStyle(input).getPropertyValue("width"));
     labelText = labelText.split(" ");
     for(var i = 0; i < labelText.length; i++) {
